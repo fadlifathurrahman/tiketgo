@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">cinema</database>
+</source>
+<canvas zoom="80">
+<tables>
+<table name="admin" view="colnames">
+<left>28</left>
+<top>215</top>
+<width>82</width>
+<height>102</height>
+<sql_create_table>CREATE TABLE `admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `password` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="booking" view="colnames">
+<left>159</left>
+<top>59</top>
+<width>93</width>
+<height>117</height>
+<sql_create_table>CREATE TABLE `booking` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) DEFAULT NULL,
+  `schedule_id` int(11) DEFAULT NULL,
+  `seat_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKlnnelfsha11xmo2ndjq66fvro` (`customer_id`),
+  KEY `FKdkador5s62nuvhdf672u65fs9` (`schedule_id`),
+  KEY `FK7ryitbom1ln9okwlj2t9tt9ym` (`seat_id`),
+  CONSTRAINT `FK7ryitbom1ln9okwlj2t9tt9ym` FOREIGN KEY (`seat_id`) REFERENCES `seat` (`id`),
+  CONSTRAINT `FKdkador5s62nuvhdf672u65fs9` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`id`),
+  CONSTRAINT `FKlnnelfsha11xmo2ndjq66fvro` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="customer" view="colnames">
+<left>25</left>
+<top>7</top>
+<width>110</width>
+<height>117</height>
+<sql_create_table>CREATE TABLE `customer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="genre" view="colnames">
+<left>811</left>
+<top>232</top>
+<width>94</width>
+<height>90</height>
+<sql_create_table>CREATE TABLE `genre` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `genre_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="genre_movies" view="colnames">
+<left>718</left>
+<top>97</top>
+<width>124</width>
+<height>89</height>
+<sql_create_table>CREATE TABLE `genre_movies` (
+  `genres_id` int(11) NOT NULL,
+  `movies_id` int(11) NOT NULL,
+  KEY `FKtgatsvi7lb98phh9ft1gogkep` (`movies_id`),
+  KEY `FKe8j9am8l355522fj88clwhbt8` (`genres_id`),
+  CONSTRAINT `FKe8j9am8l355522fj88clwhbt8` FOREIGN KEY (`genres_id`) REFERENCES `genre` (`id`),
+  CONSTRAINT `FKtgatsvi7lb98phh9ft1gogkep` FOREIGN KEY (`movies_id`) REFERENCES `movie` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="movie" view="colnames">
+<left>573</left>
+<top>96</top>
+<width>88</width>
+<height>171</height>
+<sql_create_table>CREATE TABLE `movie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `director` varchar(255) NOT NULL,
+  `duration` varchar(255) NOT NULL,
+  `poster` varchar(255) NOT NULL,
+  `rating` varchar(255) NOT NULL,
+  `synopsis` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `trailer` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="schedule" view="colnames">
+<left>398</left>
+<top>11</top>
+<width>119</width>
+<height>130</height>
+<sql_create_table>CREATE TABLE `schedule` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dates` varchar(255) NOT NULL,
+  `hours` varchar(255) NOT NULL,
+  `movie_id` int(11) DEFAULT NULL,
+  `studio_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKa6hosaihwhtb3scvamdyh9mlv` (`movie_id`),
+  KEY `FKi0lda4gvpvspv1cywe9skv40m` (`studio_id`),
+  CONSTRAINT `FKa6hosaihwhtb3scvamdyh9mlv` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
+  CONSTRAINT `FKi0lda4gvpvspv1cywe9skv40m` FOREIGN KEY (`studio_id`) REFERENCES `studio` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="seat" view="colnames">
+<left>267</left>
+<top>306</top>
+<width>78</width>
+<height>103</height>
+<sql_create_table>CREATE TABLE `seat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `number` varchar(255) NOT NULL,
+  `studio_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKoi5aylqkf8y4nqj3c8rndsfjt` (`studio_id`),
+  CONSTRAINT `FKoi5aylqkf8y4nqj3c8rndsfjt` FOREIGN KEY (`studio_id`) REFERENCES `studio` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="studio" view="colnames">
+<left>612</left>
+<top>334</top>
+<width>95</width>
+<height>90</height>
+<sql_create_table>CREATE TABLE `studio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `studio_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="studio_schedule" view="colnames">
+<left>675</left>
+<top>4</top>
+<width>179</width>
+<height>72</height>
+<sql_create_table>CREATE TABLE `studio_schedule` (
+  `studio_id` int(11) NOT NULL,
+  `schedule_id` int(11) NOT NULL,
+  UNIQUE KEY `UK_ndcxslcoq6y4a7q6163o188ek` (`schedule_id`),
+  KEY `FKkhcrbb4rkvw7w6qf3k48pd214` (`studio_id`),
+  CONSTRAINT `FKdy4o7o1jghs4m3mg50xoguu40` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`id`),
+  CONSTRAINT `FKkhcrbb4rkvw7w6qf3k48pd214` FOREIGN KEY (`studio_id`) REFERENCES `studio` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+<table name="studio_seats" view="colnames">
+<left>385</left>
+<top>197</top>
+<width>117</width>
+<height>90</height>
+<sql_create_table>CREATE TABLE `studio_seats` (
+  `studio_id` int(11) NOT NULL,
+  `seats_id` int(11) NOT NULL,
+  UNIQUE KEY `UK_6mgvcm76jgbk3d7xy4f8mrmdx` (`seats_id`),
+  KEY `FKcvbemkn67bvabkmy9ei3sbwok` (`studio_id`),
+  CONSTRAINT `FK8h77lx9qds9w3lh1ijvp87igu` FOREIGN KEY (`seats_id`) REFERENCES `seat` (`id`),
+  CONSTRAINT `FKcvbemkn67bvabkmy9ei3sbwok` FOREIGN KEY (`studio_id`) REFERENCES `studio` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

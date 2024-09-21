@@ -12,27 +12,6 @@ function Footer() {
               </span>
             </div>
           </div>
-          <div className="py-[25px] px-0">
-            <div className="relative z-10 flex justify-between items-center">
-              <ul className="p-0 flex items-center gap-6">
-                <li className="py-0 px-[15px]">
-                  <a href="#0">About</a>
-                </li>
-                <li>
-                  <a href="#0">Terms Of Use</a>
-                </li>
-                <li>
-                  <a href="#0">Privacy Policy</a>
-                </li>
-                <li>
-                  <a href="#0">FAQ</a>
-                </li>
-                <li>
-                  <a href="#0">Feedback</a>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </footer>
     </>

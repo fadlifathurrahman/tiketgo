@@ -5,24 +5,24 @@ IGNORE INTO studio VALUES
     (3, 'Cinema');
 
 INSERT
-IGNORE INTO genre VALUES
-('1', 'Drama'),
-('2', 'Comedy'),
-('3', 'Horror'),
-('4', 'Adventure'),
-('5', 'Action'),
-('6', 'Animation'),
-('7', 'Documentary'),
-('8', 'Family'),
-('9', 'Friendship'),
-('10', 'Romance'),
-('11', 'Fantasy'),
-('12', 'Science fiction'),
-('13', 'Thriller'),
-('14', 'Mystery'),
-('15', 'Biography'),
-('16', 'Musical'),
-('17', 'Religious');
+IGNORE INTO genre (`genre_name`) VALUES
+    ('Drama'),
+    ('Comedy'),
+    ('Horror'),
+    ('Adventure'),
+    ('Action'),
+    ('Animation'),
+    ('Documentary'),
+    ('Family'),
+    ('Friendship'),
+    ('Romance'),
+    ('Fantasy'),
+    ('Science fiction'),
+    ('Thriller'),
+    ('Mystery'),
+    ('Biography'),
+    ('Musical'),
+    ('Religious');
 
 INSERT
 IGNORE INTO seat VALUES

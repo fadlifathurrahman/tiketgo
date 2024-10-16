@@ -19,6 +19,11 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @GetMapping("/{id}")
+    public  Object findById(@PathVariable("id") Integer id) {
+        return customerRepository.findById(id);
+    }
+
     @GetMapping("/find-all-customer")
     public  Object findAll() {
         return customerRepository.findAll();

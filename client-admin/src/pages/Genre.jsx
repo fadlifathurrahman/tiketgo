@@ -85,7 +85,13 @@ function Genre() {
         <div className="mb-6">
           <label className="block text-sm font-medium mb-2">Add New Genre</label>
           <div className="flex space-x-2">
-            <input type="text" className="p-2 border border-gray-300 rounded-md text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full" placeholder="New genre name" value={newGenre} onChange={(e) => setNewGenre(e.target.value)} />
+            <input
+              type="text"
+              className="p-2 border border-gray-300 rounded-md text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+              placeholder="New genre name"
+              value={newGenre}
+              onChange={(e) => setNewGenre(e.target.value)}
+            />
             <button type="button" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600" onClick={handleAddGenre}>
               Add
             </button>

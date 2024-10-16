@@ -242,32 +242,30 @@ looking for data on people who committed suicide and driving the evil spirit out
 Will Gilang and his friends be able to survive and be able to get through the strange events and terrors that are starting to threaten their lives?',
 'Chiska Doppert', '1 hours 25 minutes', '5_AjPkffrf8');
 
-
-INSERT
-IGNORE INTO `schedule` (id, dates, hours, movie_id, studio_id) VALUES
-    ('', '2024-08-27', '10:00:00', '1', '1'),
-    ('', '2024-08-27', '10:00:00', '1', '2'),
-    ('', '2024-08-27', '10:00:00', '1', '3'),
-    ('', '2024-08-27', '13:00:00', '1', '1'),
-    ('', '2024-08-27', '13:00:00', '1', '2'),
-    ('', '2024-08-27', '13:00:00', '1', '3'),
-    ('', '2024-08-27', '19:00:00', '1', '1'),
-    ('', '2024-08-27', '19:00:00', '1', '2'),
-    ('', '2024-08-27', '19:00:00', '1', '3'),    
-    ('', '2024-08-27', '13:00:00', '2', '1'),
-    ('', '2024-08-27', '16:00:00', '3', '1'),
-    ('', '2024-08-27', '19:00:00', '4', '1'),
-    ('', '2024-08-27', '21:00:00', '5', '1'),
-    ('', '2024-08-28', '10:00:00', '6', '2'),
-    ('', '2024-08-28', '13:00:00', '7', '2'),
-    ('', '2024-08-28', '16:00:00', '8', '2'),
-    ('', '2024-08-28', '19:00:00', '1', '2'),
-    ('', '2024-08-28', '21:00:00', '2', '2'),
-    ('', '2024-08-29', '10:00:00', '3', '3'),
-    ('', '2024-08-29', '13:00:00', '4', '3'),
-    ('', '2024-08-29', '16:00:00', '5', '3'),
-    ('', '2024-08-29', '19:00:00', '6', '3'),
-    ('', '2024-08-29', '21:00:00', '7', '3');
+INSERT IGNORE INTO `schedule` (id, dates, hours, movie_id, studio_id) VALUES
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '10:00:00', '1', '1'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '10:00:00', '1', '2'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '10:00:00', '1', '3'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '13:00:00', '1', '1'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '13:00:00', '1', '2'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '13:00:00', '1', '3'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '19:00:00', '1', '1'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '19:00:00', '1', '2'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '19:00:00', '1', '3'),    
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '13:00:00', '2', '1'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '16:00:00', '3', '1'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '19:00:00', '4', '1'),
+    ('', (CURRENT_DATE + INTERVAL 1 DAY), '21:00:00', '5', '1'),
+    ('', (CURRENT_DATE + INTERVAL 2 DAY), '10:00:00', '6', '2'),
+    ('', (CURRENT_DATE + INTERVAL 2 DAY), '13:00:00', '7', '2'),
+    ('', (CURRENT_DATE + INTERVAL 2 DAY), '16:00:00', '8', '2'),
+    ('', (CURRENT_DATE + INTERVAL 2 DAY), '19:00:00', '1', '2'),
+    ('', (CURRENT_DATE + INTERVAL 2 DAY), '21:00:00', '2', '2'),
+    ('', (CURRENT_DATE + INTERVAL 3 DAY), '10:00:00', '3', '3'),
+    ('', (CURRENT_DATE + INTERVAL 3 DAY), '13:00:00', '4', '3'),
+    ('', (CURRENT_DATE + INTERVAL 3 DAY), '16:00:00', '5', '3'),
+    ('', (CURRENT_DATE + INTERVAL 3 DAY), '19:00:00', '6', '3'),
+    ('', (CURRENT_DATE + INTERVAL 3 DAY), '21:00:00', '7', '3');
 
 INSERT
 IGNORE INTO genre_movies (movies_id, genres_id) VALUES
@@ -293,5 +291,10 @@ IGNORE INTO genre_movies (movies_id, genres_id) VALUES
 
 
 INSERT
-IGNORE INTO `admin` (username, PASSWORD) VALUES
+IGNORE INTO `admin` (`username`, `password`) VALUES
     ('admin', 'admin123');
+
+    
+INSERT
+IGNORE INTO `customer` (`username`, `password`, `customer_name`) VALUES
+    ('tester', 'tester123', 'only for testing');

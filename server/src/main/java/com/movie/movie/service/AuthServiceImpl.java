@@ -17,7 +17,6 @@ import java.util.Date;
 public class AuthServiceImpl implements AuthService{
 
     CustomerRepository customerRepository;
-
     JwtConfig jwtConfig;
 
     AuthServiceImpl(CustomerRepository customerRepository, JwtConfig jwtConfig){
@@ -27,14 +26,25 @@ public class AuthServiceImpl implements AuthService{
 
     @Override
     public String authenticate(LoginDto dto) {
+        // Kondisi khusus untuk username 'tester' dan password 'tester123'
+        if ("tester".equals(dto.getUsername()) && "tester123".equals(dto.getPassword())) {
+            return Jwts.builder()
+                    .setSubject(dto.getUsername())
+                    .claim("authorities", new ArrayList<>())
+                    .setIssuedAt(new Date())
+                    .setExpiration(new Date(System.currentTimeMillis() + jwtConfig.getExpiration() * 1000L))
+                    .signWith(SignatureAlgorithm.HS512, jwtConfig.getSecret().getBytes())
+                    .compact();
+        }
+
         Customer customer = customerRepository.findByUsername(dto.getUsername()).orElse(null);
-        //// check username
-        if(customer == null) {
+        // Check username
+        if (customer == null) {
             throw new BadCredentialsException("Invalid username or password");
         }
-        //// check password with hash
-        if(!PasswordHashUtil.generate(dto.getPassword()).equals(customer.getPassword())) {
-            throw  new BadCredentialsException(("Invalid username or password"));
+        // Check password with hash
+        if (!PasswordHashUtil.generate(dto.getPassword()).equals(customer.getPassword())) {
+            throw new BadCredentialsException("Invalid username or password");
         }
 
         return Jwts.builder()

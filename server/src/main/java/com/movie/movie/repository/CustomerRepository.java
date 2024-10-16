@@ -7,6 +7,9 @@ import java.util.Optional;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
+    @Query("select u from Customer u where u.id=:id")
+    Optional<Customer> findById(Integer id);
+    
     @Query("select u from Customer u where u.username=:username")
     Optional<Customer> findByUsername(String username);
 }

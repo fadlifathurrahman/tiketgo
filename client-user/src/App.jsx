@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import "./css/font.css";
 import Home from "./pages/Home";
@@ -38,13 +38,24 @@ const router = createBrowserRouter([
   },
 ]);
 
-export const UserContext = createContext(null);
+// export const UserContext = createContext(null);
+export const UserContext = createContext({
+  user: null,
+  setUser: () => {},
+});
 
 function App() {
   const [tampId, setTampId] = useState(0);
   const [hasLogin, setHasLogin] = useState(false);
   const [bookedSeats, setBookedSeats] = useState([]);
   const [bookedSeatsId, setBookedSeatsId] = useState([]);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    fetch(`/customer/${user.id}`)
+      .then((response) => response.json())
+      .then((user) => setUser(user));
+  }, []);
 
   const price = bookedSeats.length * 35000;
 
@@ -60,6 +71,8 @@ function App() {
         setHasLogin,
         tampId,
         setTampId,
+        user,
+        setUser,
       }}
     >
       <RouterProvider router={router} />

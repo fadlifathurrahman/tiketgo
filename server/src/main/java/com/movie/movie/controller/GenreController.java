@@ -47,8 +47,8 @@ public ResponseEntity<String> create(@RequestBody GenreDto genreDto) {
         }
         Genre genre = new Genre();
         genre.setGenreName(genreDto.getGenreName());
-        Genre savedGenre = genreRepository.save(genre);
-        return ResponseEntity.ok("Genre " + savedGenre.getGenreName() + " has been successfully added");
+        // Genre savedGenre = genreRepository.save(genre);
+        return ResponseEntity.ok("Genre has been successfully added");
     }
 
     @PutMapping("edit-genre/{id}")

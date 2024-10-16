@@ -167,8 +167,6 @@ function CheckOut() {
           {/* </Link> */}
         </div>
       </div>
-      {/* Footer */}
-      <Footer />
     </>
   );
 }

@@ -10,6 +10,7 @@ import Seat from "./pages/Seat";
 import CheckOut from "./pages/CheckOut";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,7 @@ function App() {
       }}
     >
       <RouterProvider router={router} />
+      <Footer/>
     </UserContext.Provider>
   );
 }

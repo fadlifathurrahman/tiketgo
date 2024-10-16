@@ -262,9 +262,6 @@ function Seat() {
           </div>
         </div>
       </section>
-
-      {/* footer */}
-      <Footer />
     </>
   );
 }

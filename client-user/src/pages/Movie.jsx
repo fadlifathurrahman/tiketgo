@@ -71,8 +71,6 @@ function Movie() {
         ))}
       </section>
 
-      {/* footer */}
-      <Footer />
     </>
   );
 }

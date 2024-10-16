@@ -21,6 +21,7 @@ function Login() {
   const navigate = useNavigate();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  
   const divStyles = {
     width: "100%",
     padding: "60px 45px",
@@ -66,12 +67,11 @@ function Login() {
     >
       <div className="py-32 w-4/5 m-auto">
         <div className="max-w-xl" style={divStyles}>
+
           <div className="mb-9">
-            <span className="uppercase block text-2xl mb-6 -mt-1" style={span}>
-              HELLO
-            </span>
             <h2 className="text-[38px] font-bold text-white">WELCOME BACK</h2>
           </div>
+
           <form action="" className="block px-3">
             <div className="mb-6 flex flex-col gap-3">
               <label
@@ -112,13 +112,6 @@ function Login() {
                   Remember Password
                 </label>
               </div>
-              <a
-                href="#0"
-                class="forget-pass"
-                className="text-sm text-[#6D7BBA]"
-              >
-                Forget Password?
-              </a>
             </div>
 
             <div className="mb-6">
@@ -132,6 +125,7 @@ function Login() {
               </button>
             </div>
           </form>
+
           {/* option */}
           <div className="text-center mb-7 font-normal">
             Don't have an account?{" "}
@@ -139,31 +133,6 @@ function Login() {
               Sign up now
             </Link>
           </div>
-          {/* or */}
-
-          <div className="uppercase flex items-center justify-between mb-7">
-            <span className="bg-[#bdbdbd] opacity-50 h-[2px] w-[40%] top-[10px] inline-block"></span>
-            <span>Or</span>
-            <span className="bg-[#bdbdbd] opacity-50 h-[2px] w-[40%] top-[10px] inline-block"></span>
-          </div>
-          {/* social */}
-          <ul className="flex justify-center gap-6">
-            <li className="border-slate-500 border w-9 h-9 flex items-center justify-center rounded-full hover:bg-gradient-to-r from-[#5560ff] via-[#aa52a1] to-[#ff4343] transition duration-300 hover:bg-[#31d7a9]">
-              <a href="#0" class="active">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li className="border-slate-500 border w-9 h-9 flex items-center justify-center rounded-full hover:bg-gradient-to-r from-[#5560ff] via-[#aa52a1] to-[#ff4343] transition duration-300 hover:bg-[#31d7a9]">
-              <a href="#0" class="">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li className="border-slate-500 border w-9 h-9 flex items-center justify-center rounded-full hover:bg-gradient-to-r from-[#5560ff] via-[#aa52a1] to-[#ff4343] transition duration-300 hover:bg-[#31d7a9]">
-              <a href="#0">
-                <i class="fab fa-google"></i>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>

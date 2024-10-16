@@ -53,9 +53,9 @@ function Register() {
         <div className="max-w-xl" style={divStyles}>
           <div className="mb-9">
             <span className="uppercase block text-2xl mb-6 -mt-1" style={span}>
-              WELCOME
+              WELCOME TO
             </span>
-            <h2 className="text-[38px] font-bold text-white">To TiketGo</h2>
+            <h2 className="text-[38px] font-bold text-white">TiketGo</h2>
           </div>
           <form action="" className="block px-3">
             <div className="mb-6 flex flex-col gap-3">
@@ -134,32 +134,7 @@ function Register() {
             <Link to="/login" className="text-[#31d7a9]">
               Login
             </Link>
-          </div>
-          {/* or */}
-
-          <div className="uppercase flex items-center justify-between mb-7">
-            <span className="bg-[#bdbdbd] opacity-50 h-[2px] w-[40%] top-[10px] inline-block"></span>
-            <span>Or</span>
-            <span className="bg-[#bdbdbd] opacity-50 h-[2px] w-[40%] top-[10px] inline-block"></span>
-          </div>
-          {/* social */}
-          <ul className="flex justify-center gap-6">
-            <li className="border-slate-500 border w-9 h-9 flex items-center justify-center rounded-full hover:bg-gradient-to-r from-[#5560ff] via-[#aa52a1] to-[#ff4343] transition duration-300 hover:bg-[#31d7a9]">
-              <a href="#0" class="active">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li className="border-slate-500 border w-9 h-9 flex items-center justify-center rounded-full hover:bg-gradient-to-r from-[#5560ff] via-[#aa52a1] to-[#ff4343] transition duration-300 hover:bg-[#31d7a9]">
-              <a href="#0" class="">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li className="border-slate-500 border w-9 h-9 flex items-center justify-center rounded-full hover:bg-gradient-to-r from-[#5560ff] via-[#aa52a1] to-[#ff4343] transition duration-300 hover:bg-[#31d7a9]">
-              <a href="#0">
-                <i class="fab fa-google"></i>
-              </a>
-            </li>
-          </ul>
+          </div>          
         </div>
       </div>
     </div>
